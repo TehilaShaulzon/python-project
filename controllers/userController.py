@@ -19,7 +19,7 @@ User_Router = APIRouter()
 @User_Router.post("/login/")
 async def login_user(user: User):
     try:
-        if(not login(user)):
+        if(not await login(user)):
             raise EOFError
     except ValidationError:
         raise HTTPException(status_code=400, detail="oops... an error occurred")
@@ -28,16 +28,22 @@ async def login_user(user: User):
 @User_Router.post("/signUp/")
 async def add_user(user: User):
     try:
-        signUp(user)
+        print(user)
+        await signUp(user)
     except ValidationError:
         raise HTTPException(status_code=400, detail="oops... an error occurred")
     return f"Hello {user.name}"
 
 @User_Router.put("/{id}", response_model=User)
-async def update_user(user: User):
+async def update_user(newUser: User,id:int):
+
     try:
-       update(user)
-    except ValidationError:
-        raise HTTPException(status_code=400, detail="oops... an error occurred")
-    return "true"
+       msg=await update(newUser,id)
+       print(msg)
+
+    except Exception as e:
+        print(e)
+        raise HTTPException(status_code=400, detail="oops... an error occurred" )
+    print("lkjhgfdsdfghjklnbvcxcvbnm,")
+    return msg
 
