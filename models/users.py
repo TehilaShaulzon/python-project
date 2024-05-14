@@ -3,5 +3,7 @@ from fastapi import FastAPI, Depends, APIRouter
 
 
 class User(BaseModel):
-    name: str
     id: int
+    name: str
+    password: str
+    email: str
