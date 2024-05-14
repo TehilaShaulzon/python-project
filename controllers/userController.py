@@ -1,32 +1,25 @@
 import uvicorn
-
 from fastapi import FastAPI, Depends, APIRouter
 from fastapi import  HTTPException
-from fastapi.encoders import jsonable_encoder
-
-from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel,constr, ValidationError, validator, field_validator
-
 from models.users import User
 from services.userService import login, signUp, update
+from validations.user_validations import sign_up_check_user
 
 User_Router = APIRouter()
 
 
-
-
-
 @User_Router.post("/login/")
-async def login_user(user: User):
+async def login_user(name,password):
     try:
-        if(not await login(user)):
-            raise EOFError
-    except ValidationError:
-        raise HTTPException(status_code=400, detail="oops... an error occurred")
-    return f"Hello {user.name}"
+      print(name+" "+password)
+      await login(name,password)
+    except Exception as e:
+        raise e
+    return f"Hello {name}"
 
 @User_Router.post("/signUp/")
-async def add_user(user: User):
+async def add_user(user: User=Depends(sign_up_check_user)):
     try:
         print(user)
         await signUp(user)
@@ -35,15 +28,16 @@ async def add_user(user: User):
     return f"Hello {user.name}"
 
 @User_Router.put("/{id}", response_model=User)
-async def update_user(newUser: User,id:int):
-
+async def update_user(newUser: User,id):
+    print("updata")
     try:
-       msg=await update(newUser,id)
-       print(msg)
+       result=await update(newUser,id)
+
+       print(result)
 
     except Exception as e:
         print(e)
-        raise HTTPException(status_code=400, detail="oops... an error occurred" )
+        raise e
     print("lkjhgfdsdfghjklnbvcxcvbnm,")
-    return msg
+    return result
 

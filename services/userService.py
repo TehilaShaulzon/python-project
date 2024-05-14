@@ -1,15 +1,22 @@
+from fastapi import HTTPException
+
 from dataAccess.dataAccess import db
 from models.users import User
 
 collection = db['users']
-user_id =0
+user_id = (collection.find({}, { 'id': 1}).sort('id', -1)[0])["id"]
 
-async def login(user: User):
+async def login(name,password):
     try:
-        collection.find_one({"name": user.name,"password":user.password})
+        print(name + " " + password)
+        result = list(collection.find({"name": name, "password": password}))
+        if len(result) == 0:
+            raise HTTPException(status_code=401, detail="you are not registered")
+        else:
+            return f"hello {name} your id {result[0]}"
     except Exception as e:
         raise e
-    return f"Hello {user.name}"
+
 
 async def signUp(user: User):
     try:
@@ -18,30 +25,23 @@ async def signUp(user: User):
       user.id =user_id
       collection.insert_one(user.dict())
     except :
-        raise ValueError("")
+        raise HTTPException(status_code=401, detail="an error occurred")
     return f"Hello {user.name}"
 
 async def update(new_user: User,user_id):
     try:
-       if(not collection.find_one({"id": user_id})):
-           raise EOFError
-       collection.update_one({"id": user_id}, {"$set": new_user.dict()})
-    except:
-         raise ValueError("error!!!")
+       print(user_id)
+       print(new_user.id)
+       if user_id!= str(new_user.id):
+           raise HTTPException(status_code=401, detail="the id you insert is incorrect")
+       result=list(collection.find({"id": new_user.id}))
+       print("qweeeeee")
+       print(result)
+       if len(result)==0:
+        raise HTTPException(status_code=401, detail="this Id is not found")
+       else:
+        collection.update_one({"id": user_id}, {"$set": new_user.dict()})
+    except Exception as e:
+         raise e
 
-    return collection.find_one({"id":user_id})
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    return new_user
