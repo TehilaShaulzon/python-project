@@ -7,45 +7,11 @@ from fastapi.encoders import jsonable_encoder
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel,constr, ValidationError, validator, field_validator
 
-from models.users import User
-from services.userService import login, signUp, update
-from validations.user_validations import check_user
+from models.expenses import Expenses
+from services.expensesService import  add_new_expenses
+from validations.expenses_validations import check_user_id
 
 Expenses_Router = APIRouter()
-
-#
-#
-#
-#
-# @User_Router.post("/login/")
-# async def login_user(user: User):
-#     try:
-#        login(user)
-#     except Exception as e:
-#         raise HTTPException(status_code=400, detail=e)
-#     return f"Hello {user.name}"
-#
-# @User_Router.post("/signUp/")
-# async def add_user(user: User=Depends(check_user)):
-#     try:
-#         print(user)
-#         await signUp(user)
-#     except ValidationError:
-#         raise HTTPException(status_code=400, detail="oops... an error occurred")
-#     return f"Hello {user.name}"
-#
-# @User_Router.put("/{id}", response_model=User)
-# async def update_user(newUser: User,id:int):
-#
-#     try:
-#        msg=await update(newUser,id)
-#        print(msg)
-#
-#     except Exception as e:
-#         print(e)
-#         raise HTTPException(status_code=400, detail="oops... an error occurred" )
-#     print("lkjhgfdsdfghjklnbvcxcvbnm,")
-#     return msg
 
 @Expenses_Router.get("/{userId}")
 async def get_expenses(userId:int):
@@ -54,3 +20,13 @@ async def get_expenses(userId:int):
   except :
     raise HTTPException(status_code=400, detail="oops... an error occurred" )
   return expenses
+
+@Expenses_Router.post("/add_expenses/{user_id}")
+async def add_expenses(new_expenses: Expenses, user_id=Depends(check_user_id)):
+    try:
+        print(user_id)
+        print(new_expenses)
+        await add_new_expenses(new_expenses)
+    except :
+        raise HTTPException(status_code=400, detail="oops... an error occurred")
+    return "success"
