@@ -8,14 +8,16 @@ collection = db['expenses']
 expenses_id = (collection.find({}, { 'id': 1}).sort('id', -1)[0])["id"]
 
 
-async def getExpenses(user_id):
-    expenses = collection.find({"id": user_id}).collection()
-    # try:
-    #
-    # except:
-    #      raise ValueError("error!!!")
+async def get_expenses_by_user_id(user_id):
+    print("service")
+    try:
+        expenses_by_user_id =list(collection.find({"user_id": user_id}))
+        for i in expenses_by_user_id:
+            i.pop("_id")
+    except Exception as e:
+        raise e
 
-    return expenses
+    return expenses_by_user_id
 async def add_new_expenses(new_expenses:Expenses):
     try:
         global expenses_id

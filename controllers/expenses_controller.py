@@ -8,16 +8,19 @@ from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel,constr, ValidationError, validator, field_validator
 
 from models.expenses import Expenses
-from services.expensesService import  add_new_expenses
-from validations.expenses_validations import check_user_id
+from services.expensesService import add_new_expenses, get_expenses_by_user_id
+from validations.expenses_validations import check_user_id, check_id_exist
 
 Expenses_Router = APIRouter()
 
 @Expenses_Router.get("/{userId}")
-async def get_expenses(userId:int):
+async def get_expenses(userId:int=Depends(check_id_exist)):
   try:
-   expenses=await get_expenses(userId)
-  except :
+    expenses=await get_expenses_by_user_id(userId)
+    print("controller")
+    print(expenses)
+  except Exception as e:
+    print(e)
     raise HTTPException(status_code=400, detail="oops... an error occurred" )
   return expenses
 
