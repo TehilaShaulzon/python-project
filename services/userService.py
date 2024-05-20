@@ -22,6 +22,7 @@ Functions:
 
 from fastapi import HTTPException
 from dataAccess.dataAccess import db
+from decorators.logger_decorator import logger
 from models.users import User
 
 # Select collection
@@ -29,6 +30,7 @@ collection = db['users']
 # Initialize user_id
 user_id = (collection.find({}, {'id': 1}).sort('id', -1)[0])["id"]
 
+@logger("log.txt")
 
 async def login(name: str, password: str):
     """
@@ -54,6 +56,7 @@ async def login(name: str, password: str):
     except Exception as e:
         raise e
 
+@logger("log.txt")
 
 async def signUp(user: User):
     """

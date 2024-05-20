@@ -1,0 +1,2 @@
+[2024-05-20 22:18:59] Calling function signUp with args: (User(id=0, name='vvv', password='string', email='string'),), kwargs: {}
+[2024-05-20 22:19:24] Calling function signUp with args: (User(id=0, name='pp', password='string', email='string'),), kwargs: {}
