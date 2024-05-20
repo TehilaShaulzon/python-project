@@ -5,6 +5,7 @@ from pydantic import BaseModel
 
 class Income(BaseModel):
     id: int
+    user_id: int
     description: str
-    userId: int
-    incomeDate: datetime
+    amount: float
+    expensesDate: datetime
