@@ -1,5 +1,33 @@
-# This is a sample Python script.
+"""
+main.py
 
+This script sets up and runs a FastAPI application with routes for managing users, expenses, income, and data visualization.
+
+Modules Imported:
+    - uvicorn: ASGI server for serving the FastAPI application.
+    - bson.ObjectId: ObjectId for MongoDB document identification.
+    - fastapi.FastAPI: The main FastAPI class for creating the application instance.
+    - controllers.expenses_controller.Expenses_Router: Router for managing expenses-related endpoints.
+    - controllers.income_controller.Income_Router: Router for managing income-related endpoints.
+    - controllers.userController.User_Router: Router for managing user-related endpoints.
+    - controllers.visualization_controller.visualization_Router: Router for managing data visualization endpoints.
+    - dataAccess.dataAccess.db: Database access module for interacting with the database.
+
+Usage:
+    Run the script using the command `python main.py` or by pressing Shift+F10 in an IDE like PyCharm.
+
+    Example:
+        To start the server, navigate to the project directory and run:
+        $ uvicorn main:app --host 127.0.0.1 --port 8080
+
+Routes:
+    - /Users: User management endpoints (e.g., creating, updating, deleting users).
+    - /Expenses: Expense management endpoints (e.g., adding, updating, retrieving expenses).
+    - /Income: Income management endpoints (e.g., adding, updating, retrieving income).
+    - /visualization: Data visualization endpoints.
+
+
+"""
 import uvicorn
 from bson import ObjectId
 from fastapi import FastAPI
