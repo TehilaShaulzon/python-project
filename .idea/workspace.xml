@@ -5,12 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6fff0262-5bf2-48a1-ab02-4bcd6cbb0d4e" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/validations/income_validations.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controllers/expenses_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/expenses_controller.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/userController.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/userController.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/expensesService.py" beforeDir="false" afterPath="$PROJECT_DIR$/services/expensesService.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/userService.py" beforeDir="false" afterPath="$PROJECT_DIR$/services/userService.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/validations/expenses_validations.py" beforeDir="false" afterPath="$PROJECT_DIR$/validations/expenses_validations.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/income_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/income_controller.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/incomeService.py" beforeDir="false" afterPath="$PROJECT_DIR$/services/incomeService.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

@@ -1,11 +1,6 @@
-import uvicorn
 
 from fastapi import FastAPI, Depends, APIRouter
 from fastapi import  HTTPException
-from fastapi.encoders import jsonable_encoder
-
-from fastapi.middleware.cors import CORSMiddleware
-from pydantic import BaseModel,constr, ValidationError, validator, field_validator
 
 from models.expenses import Expenses
 from services.expensesService import add_new_expenses, get_expenses_by_user_id, update_new_expenses
