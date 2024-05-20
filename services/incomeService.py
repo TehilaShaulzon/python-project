@@ -5,7 +5,7 @@ from models.income import Income
 from models.users import User
 
 collection = db['income']
-income_id =(collection.find({}, {'id': 1}).sort('id', -1)[0])["id"]
+income_id =(collection.find({}, { 'id': 1}).sort('id', -1)[0])["id"]
 
 
 

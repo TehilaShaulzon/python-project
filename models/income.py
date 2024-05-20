@@ -8,4 +8,4 @@ class Income(BaseModel):
     user_id: int
     description: str
     amount: float
-    expensesDate: datetime
+    date: datetime
