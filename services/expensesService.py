@@ -45,3 +45,8 @@ async def update_new_expenses(new_expenses: Expenses,expenses_id,user_id):
 
     return new_expenses
 
+async def delete_one_expenses(expenses_id,user_id):
+    try:
+        collection.delete_one({"id": int(expenses_id), "user_id": user_id})
+    except Exception as e:
+        raise e

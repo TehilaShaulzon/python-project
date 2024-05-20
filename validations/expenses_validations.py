@@ -35,3 +35,17 @@ def check_id_exist(user_id):
         raise e
     return user_id
 
+
+def check_user_id_for_delete(expenses_id,user_id):
+    try:
+        user_id = int(user_id)
+        result_user_id = list(user_collection.find({"id": user_id}))
+        print(len(result_user_id))
+        if len(result_user_id) == 0:
+            raise HTTPException(status_code=401, detail="unauthorized")
+        result_expenses_id = list(expenses_collection.find({"id": int(expenses_id), "user_id": user_id}))
+        if len(result_expenses_id) == 0:
+            raise HTTPException(status_code=401, detail="not have expenses with this id")
+    except Exception as e:
+        raise e
+    return user_id

@@ -3,8 +3,8 @@ from fastapi import FastAPI, Depends, APIRouter
 from fastapi import  HTTPException
 
 from models.income import Income
-from services.incomeService import get_income_by_user_id, add_new_income, update_new_income
-from validations.income_validations import check_user_id, check_id_exist
+from services.incomeService import get_income_by_user_id, add_new_income, update_new_income, delete_one_income
+from validations.income_validations import check_user_id, check_id_exist, check_user_id_for_delete
 
 Income_Router = APIRouter()
 
@@ -31,3 +31,14 @@ async def update_income(new_income: Income,income_id, user_id=Depends(check_user
     except Exception as e:
         raise e
     return result
+
+@Income_Router.delete("/delete_income/{income_id}/{user_id}")
+async def delete_income(income_id, user_id=Depends(check_user_id_for_delete)):
+    try:
+        print(user_id)
+        print(income_id)
+        await delete_one_income(income_id,user_id)
+    except :
+        raise HTTPException(status_code=401, detail="oops... an error occurred")
+    return "success"
+

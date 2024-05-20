@@ -3,8 +3,8 @@ from fastapi import FastAPI, Depends, APIRouter
 from fastapi import  HTTPException
 
 from models.expenses import Expenses
-from services.expensesService import add_new_expenses, get_expenses_by_user_id, update_new_expenses
-from validations.expenses_validations import check_user_id, check_id_exist
+from services.expensesService import add_new_expenses, get_expenses_by_user_id, update_new_expenses, delete_one_expenses
+from validations.expenses_validations import check_user_id, check_id_exist, check_user_id_for_delete
 
 Expenses_Router = APIRouter()
 
@@ -31,3 +31,14 @@ async def update_expenses(new_expenses: Expenses,expenses_id, user_id=Depends(ch
     except Exception as e:
         raise e
     return result
+
+
+@Expenses_Router.delete("/delete_expenses/{expenses_id}/{user_id}")
+async def delete_expenses(expenses_id, user_id=Depends(check_user_id_for_delete)):
+    try:
+        print(user_id)
+        print(expenses_id)
+        await delete_one_expenses(expenses_id,user_id)
+    except :
+        raise HTTPException(status_code=401, detail="oops... an error occurred")
+    return "success"

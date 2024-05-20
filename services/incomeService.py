@@ -46,3 +46,9 @@ async def update_new_income(new_income: Income,income_id,user_id):
 
     return new_income
 
+async def delete_one_income(income_id,user_id):
+    try:
+        collection.delete_one({"id": int(income_id), "user_id": user_id})
+    except Exception as e:
+        raise e
+
