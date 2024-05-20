@@ -26,3 +26,22 @@ async def add_new_expenses(new_expenses:Expenses):
         collection.insert_one(new_expenses.dict())
     except Exception as e:
         raise e
+
+
+async def update_new_expenses(new_expenses: Expenses,expenses_id,user_id):
+    try:
+
+       if user_id!= new_expenses.user_id:
+           raise HTTPException(status_code=401, detail="the user id you insert is incorrect")
+       if expenses_id != str(new_expenses.id):
+           raise HTTPException(status_code=401, detail="the expenses id you insert is incorrect")
+       result=list(collection.find({"id": new_expenses.id,"user_id":new_expenses.user_id}))
+       if len(result)==0:
+        raise HTTPException(status_code=404, detail="this user dont have this expenses")
+       else:
+        collection.update_one({"id": int(expenses_id)}, {"$set": new_expenses.dict()})
+    except Exception as e:
+         raise e
+
+    return new_expenses
+

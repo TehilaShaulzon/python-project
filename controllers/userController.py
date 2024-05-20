@@ -29,15 +29,10 @@ async def add_user(user: User=Depends(sign_up_check_user)):
 
 @User_Router.put("/{id}", response_model=User)
 async def update_user(newUser: User,id):
-    print("updata")
     try:
        result=await update(newUser,id)
-
-       print(result)
-
     except Exception as e:
         print(e)
         raise e
-    print("lkjhgfdsdfghjklnbvcxcvbnm,")
     return result
 

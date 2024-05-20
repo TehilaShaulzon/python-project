@@ -30,7 +30,7 @@ def check_id_exist(user_id):
             raise HTTPException(status_code=401, detail="unauthorized")
         result=list(expenses_collection.find({"user_id":user_id}))
         if len(result)==0:
-            raise HTTPException(status_code=401, detail="you dont have any expenses")
+            raise HTTPException(status_code=404, detail="you dont have any expenses")
     except Exception as e:
         raise e
     return user_id
