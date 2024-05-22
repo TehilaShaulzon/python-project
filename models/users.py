@@ -1,5 +1,5 @@
 """
-models/users.py
+models/users_service_test.py
 
 This module defines the Pydantic model for representing user data.
 
@@ -28,3 +28,6 @@ class User(BaseModel):
     name: str
     password: str
     email: str
+
+    def __init__(self, id: int, name: str, password: str, email: str):
+        super().__init__(id=id, name=name, password=password, email=email)
