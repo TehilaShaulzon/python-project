@@ -1,2 +1,7 @@
 [2024-05-20 22:18:59] Calling function signUp with args: (User(id=0, name='vvv', password='string', email='string'),), kwargs: {}
 [2024-05-20 22:19:24] Calling function signUp with args: (User(id=0, name='pp', password='string', email='string'),), kwargs: {}
+[2024-05-22 20:22:04] Calling function signUp with args: (User(id=0, name='user_test', password='1111', email='string'),), kwargs: {}
+[2024-05-22 20:22:34] Calling function signUp with args: (User(id=0, name='user_test', password='1111', email='string'),), kwargs: {}
+[2024-05-22 21:06:02] Calling function signUp with args: (User(id=0, name='user_test_update', password='1111', email='string'),), kwargs: {}
+[2024-05-22 21:31:54] Calling function signUp with args: (User(id=0, name='jjj', password='1111', email='string'),), kwargs: {}
+[2024-05-22 21:32:22] Calling function signUp with args: (User(id=0, name='qwe', password='1111', email='string'),), kwargs: {}
