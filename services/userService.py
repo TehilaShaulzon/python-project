@@ -107,3 +107,12 @@ async def update(new_user: User, user_id: int):
         raise e
 
     return new_user
+
+
+
+
+
+
+
+
+

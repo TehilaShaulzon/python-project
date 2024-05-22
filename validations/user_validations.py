@@ -13,6 +13,7 @@ Functions:
 
 
 """
+# from typing import
 
 from fastapi import HTTPException
 from models.users import User
@@ -38,3 +39,15 @@ def sign_up_check_user(new_user: User):
         raise HTTPException(status_code=401, detail="Name or password is incorrect")
     else:
         return new_user
+
+
+# def validate_name(name):
+#     # בדיקת אורך השם
+#     if len(name) < 4 or len(name) > 10:
+#         return False
+#
+#     # בדיקת שאין מספרים או תווים מיוחדים
+#     if not re.match("^[a-zA-Zא-ת]+$", name):
+#         return False
+#
+#     return True

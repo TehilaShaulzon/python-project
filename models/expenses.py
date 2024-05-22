@@ -1,18 +1,3 @@
-"""
-models/expenses.py
-
-This module defines the Pydantic model for representing expenses data.
-
-Modules Imported:
-    - pydantic.BaseModel: Pydantic class for defining data models.
-    - datetime.datetime: Class representing dates and times.
-
-Class:
-    - Expenses: Pydantic model representing expenses data with fields for ID, user ID, description, amount, and date.
-
-
-"""
-
 from datetime import datetime
 from pydantic import BaseModel
 
@@ -32,3 +17,8 @@ class Expenses(BaseModel):
     description: str
     amount: float
     date: datetime
+
+    def __init__(self, id: int, user_id: int, description: str, amount: float, date: datetime):
+        super().__init__(id=id, user_id=user_id, description=description, amount=amount, date=date)
+
+#
