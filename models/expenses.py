@@ -1,5 +1,6 @@
 from datetime import datetime
-from pydantic import BaseModel
+from pydantic import BaseModel, field_validator
+
 
 class Expenses(BaseModel):
     """
@@ -20,5 +21,14 @@ class Expenses(BaseModel):
 
     def __init__(self, id: int, user_id: int, description: str, amount: float, date: datetime):
         super().__init__(id=id, user_id=user_id, description=description, amount=amount, date=date)
+
+
+    @field_validator('amount')
+    def validate_amount(cls,value):
+            print("in try")
+            if value > 0:
+                return value
+            else:
+                raise ValueError("the amount cant be negative or zero")
 
 #

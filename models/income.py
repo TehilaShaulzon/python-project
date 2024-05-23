@@ -14,7 +14,8 @@ Class:
 """
 
 from datetime import datetime
-from pydantic import BaseModel
+from pydantic import BaseModel, field_validator
+
 
 class Income(BaseModel):
     """
@@ -32,3 +33,11 @@ class Income(BaseModel):
     description: str
     amount: float
     date: datetime
+
+    @field_validator('amount')
+    def validate_amount(cls, value):
+        print("in try")
+        if value > 0:
+            return value
+        else:
+            raise ValueError("the amount cant be negative or zero")
