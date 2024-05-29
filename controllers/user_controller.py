@@ -1,5 +1,5 @@
 """
-userController.py
+user_controller.py
 
 This module defines the API routes for user authentication and management using FastAPI. It includes endpoints for user login, registration, and updating user details.
 
@@ -24,7 +24,7 @@ from fastapi import FastAPI, Depends, APIRouter
 from fastapi import HTTPException
 from pydantic import BaseModel, constr, ValidationError, validator, field_validator
 from models.users import User
-from services.userService import login, signUp, update
+from services.user_service import login, signUp, update
 from validations.user_validations import sign_up_check_user
 
 User_Router = APIRouter()

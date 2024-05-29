@@ -5,3 +5,4 @@
 [2024-05-22 21:06:02] Calling function signUp with args: (User(id=0, name='user_test_update', password='1111', email='string'),), kwargs: {}
 [2024-05-22 21:31:54] Calling function signUp with args: (User(id=0, name='jjj', password='1111', email='string'),), kwargs: {}
 [2024-05-22 21:32:22] Calling function signUp with args: (User(id=0, name='qwe', password='1111', email='string'),), kwargs: {}
+[2024-05-23 18:04:25] Calling function signUp with args: (User(id=2, name='aakk', password='jA@kjk1j', email='pip@h.j'),), kwargs: {}

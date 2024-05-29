@@ -23,7 +23,7 @@ from fastapi import FastAPI, Depends, APIRouter
 from fastapi import HTTPException
 
 from models.expenses import Expenses
-from services.expensesService import add_new_expenses, get_expenses_by_user_id, update_new_expenses, delete_one_expenses
+from services.expenses_service import add_new_expenses, get_expenses_by_user_id, update_new_expenses, delete_one_expenses
 from validations.expenses_validations import check_user_id, check_id_exist, check_user_id_for_delete
 
 Expenses_Router = APIRouter()

@@ -11,7 +11,7 @@ Modules Imported:
     - controllers.income_controller.Income_Router: Router for managing income-related endpoints.
     - controllers.userController.User_Router: Router for managing user-related endpoints.
     - controllers.visualization_controller.visualization_Router: Router for managing data visualization endpoints.
-    - dataAccess.dataAccess.db: Database access module for interacting with the database.
+    - data_access.data_access.db: Database access module for interacting with the database.
 
 Usage:
     Run the script using the command `python main.py` or by pressing Shift+F10 in an IDE like PyCharm.
@@ -34,9 +34,9 @@ from fastapi import FastAPI
 
 from controllers.expenses_controller import Expenses_Router
 from controllers.income_controller import Income_Router
-from controllers.userController import User_Router
+from controllers.user_controller import User_Router
 from controllers.visualization_controller import visualization_Router
-from dataAccess.dataAccess import db
+from data_access.data_access import db
 
 # Press Shift+F10 to execute it or replace it with your code.
 # Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.

@@ -17,7 +17,7 @@ Functions:
 
 from fastapi import HTTPException
 from models.users import User
-from services.userService import collection
+from services.user_service import collection
 
 
 def sign_up_check_user(new_user: User):

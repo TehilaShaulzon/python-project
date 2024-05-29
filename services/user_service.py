@@ -1,11 +1,11 @@
 """
-services/userService.py
+services/user_service.py
 
 This module defines service functions related to user management.
 
 Modules Imported:
     - fastapi.HTTPException: Exception class for handling HTTP errors.
-    - dataAccess.dataAccess: Module for accessing the database.
+    - data_access.data_access: Module for accessing the database.
     - models.users.User: Pydantic model for representing user data.
 
 Global Variables:
@@ -21,7 +21,7 @@ Functions:
 """
 
 from fastapi import HTTPException
-from dataAccess.dataAccess import db
+from data_access.data_access import db
 from decorators.logger_decorator import logger
 from models.users import User
 

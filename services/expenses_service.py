@@ -1,11 +1,11 @@
 """
-services/expensesService.py
+services/expenses_service.py
 
 This module defines service functions related to expenses management.
 
 Modules Imported:
     - fastapi.HTTPException: Exception class for handling HTTP errors.
-    - dataAccess.dataAccess: Module for accessing the database.
+    - data_access.data_access: Module for accessing the database.
     - models.expenses.Expenses: Pydantic model for representing expenses data.
     - models.users.User: Pydantic model for representing user data.
 
@@ -23,7 +23,7 @@ Functions:
 """
 
 from fastapi import HTTPException
-from dataAccess.dataAccess import db
+from data_access.data_access import db
 from models.expenses import Expenses
 from models.users import User
 

@@ -23,7 +23,7 @@ from fastapi import FastAPI, Depends, APIRouter
 from fastapi import HTTPException
 
 from models.income import Income
-from services.incomeService import get_income_by_user_id, add_new_income, update_new_income, delete_one_income
+from services.income_service import get_income_by_user_id, add_new_income, update_new_income, delete_one_income
 from validations.income_validations import check_user_id, check_id_exist, check_user_id_for_delete
 
 Income_Router = APIRouter()

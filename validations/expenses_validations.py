@@ -19,8 +19,8 @@ Functions:
 
 from fastapi import HTTPException
 from models.expenses import Expenses
-from services.userService import collection as user_collection
-from services.expensesService import collection as expenses_collection
+from services.user_service import collection as user_collection
+from services.expenses_service import collection as expenses_collection
 
 
 def check_user_id(new_expenses: Expenses, user_id: int):

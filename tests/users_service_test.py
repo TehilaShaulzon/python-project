@@ -1,7 +1,7 @@
 import pytest
 
 from models.users import User
-from services.userService import collection, signUp, login
+from services.user_service import collection, signUp, login
 
 
 @pytest.mark.asyncio
