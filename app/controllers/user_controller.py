@@ -23,8 +23,8 @@ import uvicorn
 from fastapi import FastAPI, Depends, APIRouter
 from fastapi import HTTPException
 from pydantic import BaseModel, constr, ValidationError, validator, field_validator
-from models.users import User
-from services.user_service import login, signUp, update
+from app.models.users import User
+from app.services.user_service import login, signUp, update
 from validations.user_validations import sign_up_check_user
 
 User_Router = APIRouter()

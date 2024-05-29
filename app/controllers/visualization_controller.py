@@ -23,9 +23,9 @@ import io
 from fastapi import FastAPI, Depends, APIRouter
 from fastapi import HTTPException
 from starlette.responses import StreamingResponse
-from models.expenses import Expenses
-from services.expenses_service import get_expenses_by_user_id
-from services.income_service import get_income_by_user_id
+from app.models.expenses import Expenses
+from app.services.expenses_service import get_expenses_by_user_id
+from app.services.income_service import get_income_by_user_id
 from validations.expenses_validations import check_id_exist
 import matplotlib.pyplot as plt
 

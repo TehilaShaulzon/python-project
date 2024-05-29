@@ -32,11 +32,11 @@ import uvicorn
 from bson import ObjectId
 from fastapi import FastAPI
 
-from controllers.expenses_controller import Expenses_Router
-from controllers.income_controller import Income_Router
-from controllers.user_controller import User_Router
-from controllers.visualization_controller import visualization_Router
-from data_access.data_access import db
+from app.controllers.expenses_controller import Expenses_Router
+from app.controllers.income_controller import Income_Router
+from app.controllers.user_controller import User_Router
+from app.controllers.visualization_controller import visualization_Router
+from app.services.service_data_access import db
 
 # Press Shift+F10 to execute it or replace it with your code.
 # Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.

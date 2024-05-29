@@ -23,9 +23,9 @@ Functions:
 """
 
 from fastapi import HTTPException
-from data_access.data_access import db
-from models.expenses import Expenses
-from models.users import User
+from app.services.service_data_access import db
+from app.models.expenses import Expenses
+from app.models.users import User
 
 # Select collection
 collection = db['expenses']

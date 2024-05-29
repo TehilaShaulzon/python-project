@@ -4,8 +4,8 @@ import pytest
 
 from pymongo import MongoClient
 
-from models.expenses import Expenses
-from services.expenses_service import get_expenses_by_user_id, collection, update_new_expenses, delete_one_expenses
+from app.models.expenses import Expenses
+from app.services.expenses_service import get_expenses_by_user_id, collection, update_new_expenses, delete_one_expenses
 
 
 @pytest.mark.asyncio
